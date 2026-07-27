@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>STAGE APEX — Склад</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 1. ЭКРАН АВТОРИЗАЦИИ -->
+    <div id="authSection" class="card">
+        <h2>Stage Apex - Склад</h2>
+        <p class="subtitle">Выберите роль для входа:</p>
+
+        <div id="roleSelectBlock">
+            <button class="role-btn" id="selectWorkerBtn">Войти как сотрудник</button>
+            <button class="role-btn secondary" id="selectManagerBtn">Войти как менеджер</button>
+        </div>
+
+        <div id="loginFormBlock" style="display: none;">
+            <h3 id="formRoleTitle">Вход</h3>
+            <div class="input-group">
+                <label>Логин:</label>
+                <input type="text" id="loginInput" placeholder="Ваш логин">
+            </div>
+            <div class="input-group">
+                <label>Пароль:</label>
+                <input type="password" id="passInput" placeholder="Ваш пароль">
+            </div>
+            <button id="loginSubmitBtn">Войти</button>
+            <button id="cancelAuthBtn" class="link-btn">Назад на страницу авторизации</button>
+        </div>
+    </div>
+
+    <!-- 2. ИНТЕРФЕЙС СОТРУДНИКА -->
+    <div id="workerSection" style="display: none;">
+        <h1 class="page-title">Сотрудник</h1>
+
+        <div class="card">
+            <div class="status">Статус: <span id="status">Ожидание</span></div>
+            <div class="number">
+                <div class="title">Номер коробки (Box_ID)</div>
+                <div id="boxNumber">----</div>
+            </div>
+            <button id="createBtn">Принять коробку</button>
+        </div>
+
+        <div class="card" id="uploadBlock" style="display: none;">
+            <div class="input-group">
+                <label>Тип приёмки:</label>
+                <select id="orderTypeSelect" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 6px; margin-bottom: 15px;">
+                    <option value="main">Основной заказ (1 фото)</option>
+                    <option value="extra">Допы (7 фото)</option>
+                </select>
+            </div>
+
+            <h2>Чек-лист фотографий</h2>
+            
+            <!-- Поле для основного заказа -->
+            <div id="mainOrderPhotos">
+                <label>1. Визуальное фото товара
+                    <input type="file" id="photoMain" accept="image/*">
+                </label>
+            </div>
+
+            <!-- Поля для допов -->
+            <div id="extraOrderPhotos" style="display: none;">
+                <label>1. Коробка до вскрытия 
+                    <input type="file" id="photo1" accept="image/*">
+                </label>
+                <label>2. Общий вид содержимого 
+                    <input type="file" id="photo2" accept="image/*">
+                </label>
+                <label>3. Маркировка резины №1 
+                    <input type="file" id="photo3" accept="image/*">
+                </label>
+                <label>4. Маркировка резины №2 
+                    <input type="file" id="photo4" accept="image/*">
+                </label>
+                <label>5. Ступица / сторона №1 
+                    <input type="file" id="photo5" accept="image/*">
+                </label>
+                <label>6. Ступица / сторона №2 
+                    <input type="file" id="photo6" accept="image/*">
+                </label>
+                <label>7. Комплектность 
+                    <input type="file" id="photo7" accept="image/*">
+                </label>
+            </div>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label>Складское место (например, S-01):</label>
+                <input type="text" id="storagePlace" placeholder="S-01">
+            </div>
+
+            <button id="finishBtn">Завершить приёмку</button>
+        </div>
+
+        <button id="workerExitBtn" class="exit-btn-outer">Закончить приёмку</button>
+    </div>
+
+    <!-- 3. ИНТЕРФЕЙС МЕНЕДЖЕРА -->
+    <div id="managerSection" style="display: none;">
+        <h1 class="page-title">Менеджер</h1>
+        
+        <button id="refreshManagerBtn" class="refresh-btn">Обновить список</button>
+        <div id="boxesList"></div>
+
+        <button id="managerExitBtn" class="exit-btn-outer">Закончить работу</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
