@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyl-HZbTTiksP_J0ij2-w7H9DmPmy-Fei2X-RIWLsPT8uaI-Q-c2Ls35J0eXUvYcsaNCQ/exec";
+const SCRIPT_URL = "const";
 
 // Авторизация
 const authSection = document.getElementById('authSection');
