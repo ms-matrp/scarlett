@@ -333,7 +333,7 @@ async function loadManagerBoxes() {
             } else {
                 invoiceHtml = `
                     <div class="input-group" style="margin-top: 15px;">
-                        <label>Загрузить накладную (ТТН):</label>
+                        <label>Загрузить накладную:</label>
                         <input type="file" id="invoice_${box.number}" accept="image/*,application/pdf">
                         <button onclick="uploadInvoice('${box.number}', '${box.folderId}')" style="margin-top: 5px; background-color: #17a2b8;">Прикрепить накладную</button>
                     </div>
